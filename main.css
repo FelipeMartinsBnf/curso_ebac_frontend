@@ -1,115 +1,64 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-body > header{
-    background-color: #2f3640;
-    padding: 16px 0px;
-    color: lightgray;
+body {
 }
 
-header .container{
-    display: flex; 
-    align-items: center;
-    justify-content: space-between;
-}
-
-header li{
-    display: inline;
-    margin-left: 16px;
-}
-
-header li a{
-    color: lightgray;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-#sports {
-    background-color: rgba(0,255,0, 0.1);
-}
-#sports .articles article a {
-    background-color: #009432;
-}
-
-#economy{
-    background-color: #f8f59f;
-}
-#economy .articles article a {
-    background-color: #ff9f1a;
-}
-
-#entertainment{
-    background-color: #b1bdda;
-}
-#entertainment .articles article a {
-    background-color: #587bce;
-}
-
-#technology{
-    background-color: #e891aa53;
-}
-#technology .articles article a {
-    background-color: #e891aafa;
-}
-
-
-.container{
-    width: 1366px;
-    margin: 0 auto;    
-}
-
-.articles{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.articles article img{
-    /*height: 180px;*/
+.container {
+    margin: 80px auto;
+    max-width: 640px;
     width: 100%;
 }
 
-.articles article{
-    width: 30%;
+form {
+    margin-top: 40px;
 }
 
-section{
-    padding: 16px 0px;
-}
-
-section h2,
-.articles article{
-    margin-bottom: 16px;
-}
-
-.articles article h3{
-    margin-top: 8px;
-    margin-bottom:8px;
-    font-size: 24px
-}
-
-.articles article a {
-    background-color:  blue;
-    color: #fff;
+input, textarea, button {
+    display: block;
     padding: 8px;
-    display: inline-block;
-    text-decoration:none;
+    margin-bottom: 8px;
+    width: 100%;
+    resize: none;
+}
+
+button {
+    background-color: #2ecc71;
+    border: none;
+    text-transform: uppercase;
+    color: #fff;
     font-weight: bold;
-    margin-top: 8px;
-}
-.articles article a:hover {
-    text-decoration: underline;
-}
-
-.articles article p,
-.articles article a{
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-style: italic;
+    cursor: pointer;
 }
 
-section h2 {
-    font-size:  32px;
+button:hover {
+    background-color: #27ae60;
+}
+
+.success-msg{
+    background-color: #27ae60;
+    padding: 16px;
+    color: #FFF;
+    display: none;
+}
+
+.error-msg{
+    font-size: 12px;
+    padding: 8px;
+    background-color: red;
+    color: #fff;
+    margin-bottom: 8px;
+    display: none;
+}
+
+input.error{
+    color: red;
+    border-color: red;
+    outline-color: red;
 }
