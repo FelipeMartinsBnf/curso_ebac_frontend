@@ -14,7 +14,7 @@ form.addEventListener('submit', function(e){
     const msg = document.querySelector('.msg');
     msg.className='msg';
 
-const msgSucesso = "Formulário válido, o valor de A("+ NumA.value +") é menor do que B("+ NumB.value +")";
+    const msgSucesso = "Formulário válido, o valor de A("+ NumA.value +") é menor do que B("+ NumB.value +")";
     const msgError = "O formulário é inválido, pos o Número A("+ NumA.value +") é maior ou igual que o número B("+ NumB.value +")";
 
     valido = validaNumero(NumA.value, NumB.value);
