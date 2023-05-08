@@ -5,9 +5,6 @@
     font-family: sans-serif;
 }
 
-body {
-}
-
 .container {
     margin: 80px auto;
     max-width: 640px;
@@ -41,24 +38,19 @@ button:hover {
     background-color: #27ae60;
 }
 
-.success-msg{
+.msg{
     background-color: #27ae60;
     padding: 16px;
     color: #FFF;
     display: none;
 }
 
-.error-msg{
-    font-size: 12px;
-    padding: 8px;
-    background-color: red;
-    color: #fff;
-    margin-bottom: 8px;
-    display: none;
+.success{
+    background-color: #27ae60;
+    display: block;
 }
 
-input.error{
-    color: red;
-    border-color: red;
-    outline-color: red;
+.error{
+    background-color: red;
+    display: block;
 }
