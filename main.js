@@ -1,32 +1,63 @@
-const form = document.getElementById('form');
-const NumA = document.getElementById('A');
-const NumB = document.getElementById('B');
-let valido = false;
+$(document).ready(function(){
 
-function validaNumero(A, B){
-    return parseInt(A) < parseInt(B);
-}
+    (function( $ ){
+        $.fn.resetForm = function() {
+            if(confirm('Tem certeza que deseja apagar todas as tarefas?')){
+                //$('ul').slideUp();
+                $('ul').slideUp()
+                $('ul').html('');
+            }
+           return this;
+        }; 
+     })( jQuery );
 
-form.addEventListener('submit', function(e){
+     (function( $ ){
+        $.fn.deletarLinha = function(id) {
+            $('#'+id).slideUp();
+            window.setTimeout( () => {$('#'+id).remove();}, 2000 );
+        }; 
+     })( jQuery );
 
-    e.preventDefault();
+     (function( $ ){
+        $.fn.terminarTarefa = function(id) {
+            const li = $('#'+id)
+            const checkbox = $('#check-'+id);
+            
+            //if($(li) != null){
+                console.log(li)
+                if($(li).hasClass('tarefa')){
+                    li.removeClass('tarefa')
+                    li.addClass('tarefa-marcada');
+                    checkbox.attr('checked', true);
+                }else{
+                    li.removeClass('tarefa-marcada')
+                    li.addClass('tarefa');
+                    checkbox.attr('checked', false);
+                }
+            //}
+        }; 
+     })( jQuery );
 
-    const msg = document.querySelector('.msg');
-    msg.className='msg';
 
-    const msgSucesso = "Formulário válido, o valor de A("+ NumA.value +") é menor do que B("+ NumB.value +")";
-    const msgError = "O formulário é inválido, pos o Número A("+ NumA.value +") é maior ou igual que o número B("+ NumB.value +")";
 
-    valido = validaNumero(NumA.value, NumB.value);
-    if(valido){
-        msg.innerHTML = msgSucesso;
-        msg.classList.add('success');
 
-    }else{
-        document.querySelector('.msg').innerHTML = msgError;
-        document.querySelector('.msg').classList.add('error');
-    }
-
-    NumA.value = '';
-    NumB.value = '';
-})
+    $('form').on('submit', function(e){
+        e.preventDefault();
+        $('ul').show();
+        
+        const taskInput = $('#task-input').val();
+        let nomeTarefaReal = $.trim(taskInput);
+        let nomeTarefa = nomeTarefaReal.replaceAll(' ', '-');
+        
+        const novoLi = $(`<li onclick="$().terminarTarefa('${nomeTarefa}')" id="li-${nomeTarefa}" >`);
+            $(`<input type="checkbox" id="check-${nomeTarefa}" disabled >`).appendTo(novoLi);
+            $(`<spam class='tarefa' id="${nomeTarefa}">${nomeTarefaReal}</spam>`).appendTo(novoLi);
+            $(`<span class="material-symbols-outlined btn-delete" onclick="$().deletarLinha('li-${nomeTarefa}')">backspace</span>
+        </li> `).appendTo(novoLi);
+        //
+        $(novoLi).appendTo('ul');
+        $(novoLi).slideDown();
+        $('#task-input').val(' ');
+        
+    })
+}) 
