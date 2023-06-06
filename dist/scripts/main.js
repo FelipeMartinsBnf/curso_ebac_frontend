@@ -1,1 +1,0 @@
-function alerta(a){alert("Alerta: "+a)}alerta("Olá!");
