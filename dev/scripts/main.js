@@ -1,1 +1,0 @@
-function alerta(a="Teste do JavaScript"){alert(a)}alerta(),alerta("Olá Grunt");
