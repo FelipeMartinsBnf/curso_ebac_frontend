@@ -1,9 +1,0 @@
-{
-  "description": "",
-  "devDependencies": {
-    "sass": "^1.63.4"
-  },
-  "scripts": {
-    "sass": "sass"
-  }
-}
